@@ -75,7 +75,7 @@ public class MainApplication extends Application implements ReactApplication {
                                         CalculatorModule.NAME,
                                         new ReactModuleInfo(
                                                 CalculatorModule.NAME,
-                                                "NativeAnswerSolver",
+                                                CalculatorModule.NAME,
                                                 false, // canOverrideExistingModule
                                                 false, // needsEagerInit
                                                 true, // hasConstants

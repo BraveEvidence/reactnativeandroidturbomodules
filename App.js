@@ -28,7 +28,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import NativeCalculator from './js/NativeCalculator';
+import Calculator from './js/NativeCalculator';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -64,7 +64,7 @@ const App: () => Node = () => {
   };
 
   const onPress = async () => {
-    const theAnswer = await NativeCalculator?.add(4, 5);
+    const theAnswer = await Calculator?.add(4, 5);
     Alert.alert('Answer', 'The answer is ' + theAnswer);
   };
 
