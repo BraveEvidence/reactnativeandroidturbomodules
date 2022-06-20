@@ -2,6 +2,7 @@ package com.firstapp;
 
 import android.app.Application;
 import android.content.Context;
+//import android.view.ViewManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,9 +37,16 @@ import com.firstapp.newarchitecture.modules.MainApplicationTurboModuleManagerDel
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.facebook.react.uimanager.ViewManager;
+//import com.firstapp.newarchitecture.components.AnswerViewerManager;
+import com.firstapp.newarchitecture.modules.ColoredViewManager;
+import com.firstapp.newarchitecture.components.MainComponentsRegistry;
+
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -86,7 +94,46 @@ public class MainApplication extends Application implements ReactApplication {
                                 return moduleInfos;
                             };
                         }
+
                     });
+
+                    packages.add(new ReactPackage() {
+                        @NonNull
+                        @Override
+                        public List<NativeModule> createNativeModules(
+                                @NonNull ReactApplicationContext reactContext) {
+                            return Collections.emptyList();
+                        }
+
+                        @NonNull
+                        @Override
+                        public List<ViewManager> createViewManagers(
+                                @NonNull ReactApplicationContext reactContext) {
+                            // Your ViewManager is returned here.
+                            return Collections.singletonList(new ColoredViewManager(reactContext));
+                        }
+                    });
+
+//                    packages.add(new ReactPackage() {
+//                        @NonNull
+//                        @Override
+//                        public List<NativeModule> createNativeModules(
+//                                @NonNull ReactApplicationContext reactContext) {
+//                            return Collections.emptyList();
+//                        }
+//
+//                        @NonNull
+//                        @Override
+//                        public List<ViewManager> createViewManagers(
+//                                @NonNull ReactApplicationContext reactContext) {
+//                            // Your ViewManager is returned here.
+////                            return Collections.singletonList(new ColoredViewManager(reactContext));
+//                            List<ViewManager> viewManagers = new ArrayList<>();
+//                            viewManagers.add(new ColoredViewManager(reactContext));
+//                            return viewManagers;
+//                        }
+//                    });
+
                     return packages;
                 }
 
@@ -138,6 +185,8 @@ public class MainApplication extends Application implements ReactApplication {
                         }
                     };
                 }
+
+
             };
 
     private final ReactNativeHost mNewArchitectureNativeHost =

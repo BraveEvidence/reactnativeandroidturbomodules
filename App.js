@@ -29,6 +29,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Calculator from './js/NativeCalculator';
+import ColoredView from './js/ColoredViewNativeComponent';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -74,6 +75,10 @@ const App: () => Node = () => {
       <TouchableOpacity onPress={onPress}>
         <Text style={{fontSize: 20, color: 'red'}}>Click Me</Text>
       </TouchableOpacity>
+      <ColoredView
+        style={{margin: 20, width: 100, height: 100}}
+        color={'FFAA77'}
+      />
       {/* <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
